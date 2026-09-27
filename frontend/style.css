@@ -1,4 +1,4 @@
-* { box-sizing: border-box; }
+* { box-sizing: border-box; overflow-wrap: break-word; }
 
 :root {
   --bg-1: #0f0b1e;
@@ -39,7 +39,7 @@ body {
 
 .card {
   width: 100%;
-  max-width: 480px;
+  max-width: 540px;
   background: rgba(23, 18, 43, 0.75);
   border: 1px solid var(--card-border);
   border-radius: 28px;
@@ -78,10 +78,54 @@ body {
 }
 
 .subtitle {
-  font-size: 1.15rem;
-  font-weight: 500;
-  margin: 4px 0 22px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 4px 0 10px;
+  color: var(--text);
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
   color: var(--text-dim);
+  margin: 0 0 22px;
+  max-width: 40ch;
+}
+
+.steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding: 14px 12px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+  width: 100%;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 84px;
+  min-width: 0;
+}
+
+.step-icon { font-size: 1.4rem; }
+
+.step-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.step-arrow {
+  color: rgba(167, 159, 196, 0.4);
+  font-size: 1.1rem;
 }
 
 .lang-row {
@@ -256,13 +300,35 @@ body {
   border: 1px solid rgba(124, 92, 255, 0.3);
 }
 
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.badge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--card-border);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
 .disclaimer {
   font-size: 0.82rem;
   color: rgba(167, 159, 196, 0.7);
-  margin-top: 22px;
+  margin-top: 14px;
 }
 
 @media (max-width: 480px) {
+  .description { max-width: 32ch; }
+  .steps { gap: 6px; padding: 12px 8px; }
+  .step { min-width: 62px; }
+  .step-text { font-size: 0.7rem; }
   .mic-wrap { width: 140px; height: 140px; }
   .mic-btn { width: 118px; height: 118px; }
   .brand-badge { display: none; }

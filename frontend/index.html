@@ -28,7 +28,29 @@
       <span class="brand-badge">powered by Sarvam</span>
     </header>
 
-    <p class="subtitle">Your Pension, Explained Out Loud</p>
+    <p class="subtitle" data-i18n="subtitle">Your Pension, Explained Out Loud</p>
+    <p class="description" data-i18n="description">
+      This is a voice helper for the Senior Citizen Pension Scheme. Tap the
+      microphone, ask your question the way you would ask a person, and
+      listen to the answer — no forms, no reading required.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-icon">🎙️</span>
+        <span class="step-text" data-i18n="step1">Tap &amp; Speak</span>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <span class="step-icon">🧠</span>
+        <span class="step-text" data-i18n="step2">We Understand</span>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <span class="step-icon">🔊</span>
+        <span class="step-text" data-i18n="step3">Hear the Answer</span>
+      </div>
+    </div>
 
     <div class="lang-row" id="langRow">
       <button class="lang-pill active" data-lang="en-IN">English</button>
@@ -50,14 +72,14 @@
 
     <div class="status-row">
       <span id="statusDot" class="status-dot"></span>
-      <p id="status" class="status">Tap the microphone and ask about your pension.</p>
+      <p id="status" class="status" data-i18n="statusIdle">Tap the microphone and ask about your pension.</p>
     </div>
 
     <button id="repeatBtn" class="repeat-btn" hidden>
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 4v5h5M20 20v-5h-5M4.5 9a8 8 0 0 1 14-4.5M19.5 15a8 8 0 0 1-14 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      Repeat Answer
+      <span data-i18n="repeat">Repeat Answer</span>
     </button>
 
     <audio id="player" hidden></audio>
@@ -67,7 +89,13 @@
       <div id="assistantLine" class="line assistant-line" hidden></div>
     </section>
 
-    <p class="disclaimer">Fictional demo pension scheme — for demonstration only.</p>
+    <div class="badges">
+      <span class="badge">🗣️ 4 Languages</span>
+      <span class="badge">🔒 No Sign-up</span>
+      <span class="badge">👴 Made for Elders</span>
+    </div>
+
+    <p class="disclaimer" data-i18n="disclaimer">Fictional demo pension scheme — for demonstration only.</p>
   </main>
 
   <script src="app.js"></script>
