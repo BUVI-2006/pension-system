@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SCSP Pension Assistant</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>SCSP</h1>
+    <p class="subtitle">Senior Citizen Pension Assistant</p>
+
+    <label class="lang-label" for="lang">Language</label>
+    <select id="lang" class="lang-select">
+      <option value="en-IN">English</option>
+      <option value="hi-IN">हिन्दी</option>
+      <option value="ta-IN">தமிழ்</option>
+      <option value="te-IN">తెలుగు</option>
+    </select>
+
+    <button id="micBtn" class="mic-btn" aria-label="Tap to speak">🎙</button>
+    <p id="status" class="status">Tap the microphone and ask about your pension.</p>
+
+    <button id="repeatBtn" class="repeat-btn" hidden>🔁 Repeat Answer</button>
+
+    <audio id="player" hidden></audio>
+
+    <section class="transcript" aria-live="polite">
+      <div id="userLine" class="line user-line" hidden></div>
+      <div id="assistantLine" class="line assistant-line" hidden></div>
+    </section>
+
+    <p class="disclaimer">This is a fictional demo pension scheme, for demonstration only.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
