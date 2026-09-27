@@ -1,20 +1,37 @@
 const micBtn = document.getElementById("micBtn");
 const statusEl = document.getElementById("status");
+const statusDot = document.getElementById("statusDot");
 const repeatBtn = document.getElementById("repeatBtn");
 const player = document.getElementById("player");
 const userLine = document.getElementById("userLine");
 const assistantLine = document.getElementById("assistantLine");
-const langSelect = document.getElementById("lang");
+const langRow = document.getElementById("langRow");
 
 let mediaRecorder = null;
 let chunks = [];
 let recording = false;
+let currentLang = "en-IN";
+
+const DOT_COLORS = {
+  idle: "#34d399",
+  listening: "#ff5d6c",
+  thinking: "#ff7a59",
+};
 
 function setStatus(text, mode) {
   statusEl.textContent = text;
   micBtn.classList.remove("listening", "thinking");
+  statusDot.style.background = DOT_COLORS[mode || "idle"];
   if (mode) micBtn.classList.add(mode);
 }
+
+langRow.addEventListener("click", (e) => {
+  const btn = e.target.closest(".lang-pill");
+  if (!btn) return;
+  document.querySelectorAll(".lang-pill").forEach((p) => p.classList.remove("active"));
+  btn.classList.add("active");
+  currentLang = btn.dataset.lang;
+});
 
 async function startRecording() {
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -42,7 +59,7 @@ async function handleRecordingStop() {
   const blob = new Blob(chunks, { type: "audio/webm" });
   const formData = new FormData();
   formData.append("file", blob, "speech.webm");
-  formData.append("language_code", langSelect.value);
+  formData.append("language_code", currentLang);
 
   try {
     const res = await fetch("/api/voice", { method: "POST", body: formData });
